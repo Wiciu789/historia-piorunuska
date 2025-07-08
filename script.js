@@ -1,6 +1,6 @@
 // --- KOPERTA + START ---
 document.getElementById("envelope").addEventListener("click", () => {
-    document.getElementById("envelope-screen").style.display = "none";
+    document.getElementById("envelope_screen").style.display = "none";
     document.getElementById("main-content").classList.remove("hidden");
     startCounter();
     updateGalleryImage();
