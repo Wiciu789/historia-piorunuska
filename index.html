@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Historia Piorunka 💖</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="cover">
+    <img src="images/envelope.png" id="envelope" alt="Otwórz kopertę" />
+  </div>
+
+  <div id="main-content" class="hidden">
+    <h1>To będzie piękna historia Piorunka 💘</h1>
+    <p id="counter"></p>
+
+    <div class="gallery-container">
+      <div class="gallery" id="gallery">
+        <img src="images/gallery_1.jpg" />
+        <img src="images/gallery_2.jpg" />
+        <img src="images/gallery_3.jpg" />
+        <img src="images/gallery_4.jpg" />
+        <img src="images/gallery_5.jpg" />
+        <img src="images/gallery_6.jpg" />
+      </div>
+    </div>
+
+    <button id="shuffle-btn">🔄 Zagraj w puzzle</button>
+    <div id="puzzle-board"></div>
+    <p id="success-message" class="hidden">🎉 Brawo! Ułożyłeś puzzle!</p>
+
+    <div id="timer">Jesteśmy razem od: <span id="days-together"></span> dni 💞</div>
+  </div>
+
+  <audio autoplay loop>
+    <source src="music.mp3" type="audio/mpeg" />
+  </audio>
+
+  <script src="script.js"></script>
+</body>
+</html>
