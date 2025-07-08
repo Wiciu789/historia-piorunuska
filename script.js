@@ -63,3 +63,46 @@ window.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+document.getElementById("shuffle-btn").addEventListener("click", () => {
+  const board = document.getElementById("puzzle-board");
+  board.classList.remove("hidden");
+  board.innerHTML = "";
+
+  const pieces = [];
+  for (let i = 0; i < 16; i++) {
+    const piece = document.createElement("img");
+    piece.src = piece_${i}.jpg;
+    piece.className = "puzzle-piece";
+    piece.draggable = true;
+    piece.dataset.index = i;
+    pieces.push(piece);
+  }
+
+  pieces.sort(() => Math.random() - 0.5);
+
+  pieces.forEach(p => board.appendChild(p));
+
+  let dragged = null;
+  board.querySelectorAll("img").forEach(el => {
+    el.addEventListener("dragstart", e => dragged = e.target);
+    el.addEventListener("dragover", e => e.preventDefault());
+    el.addEventListener("drop", e => {
+      e.preventDefault();
+      if (!dragged || dragged === e.target) return;
+
+      const tmp = document.createElement("span");
+      board.insertBefore(tmp, dragged);
+      board.insertBefore(dragged, e.target);
+      board.insertBefore(e.target, tmp);
+      board.removeChild(tmp);
+
+      const isCorrect = [...board.children].every((el, idx) =>
+        el.dataset.index == idx
+      );
+
+      if (isCorrect) {
+        setTimeout(() => alert("Brawo! Ułożyłeś puzzle 🎉"), 300);
+      }
+    });
+  });
+});
