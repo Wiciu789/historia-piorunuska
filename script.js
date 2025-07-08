@@ -1,16 +1,18 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // --- KOPERTA + START ---
-  document.getElementById("envelope").addEventListener("click", () => {
-    document.getElementById("envelope_screen").style.display = "none";
-    document.getElementById("main_content").classList.remove("hidden");
-    startCounter();
-    updateGalleryImage();
-  });
+window.addEventListener("DOMContentLoaded", () => {
+  // === KOPERTA ===
+  const envelope = document.getElementById("envelope");
+  if (envelope) {
+    envelope.addEventListener("click", () => {
+      document.getElementById("envelope_screen").style.display = "none";
+      document.getElementById("main_content").classList.remove("hidden");
+      startCounter();
+      updateGalleryImage();
+    });
+  }
 
-  // --- LICZNIK: DNI, GODZINY, MINUTY, SEKUNDY ---
+  // === LICZNIK ===
   function startCounter() {
     const startDate = new Date("2022-07-15T00:00:00");
-
     setInterval(() => {
       const now = new Date();
       const diff = now - startDate;
@@ -21,11 +23,11 @@ document.addEventListener("DOMContentLoaded", () => {
       const seconds = Math.floor((diff / 1000) % 60);
 
       document.getElementById("days-together").innerText =
-       `${days} dni, ${hours}h ${minutes}m ${seconds}s`;
+        `${days} dni, ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
   }
 
-  // --- GALERIA: JEDNO ZDJĘCIE + STRZAŁKI ---
+  // === GALERIA ===
   const galleryImages = [
     "gallery_1.jpg",
     "gallery_2.jpg",
@@ -33,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     "gallery_4.jpg",
     "gallery_5.jpg"
   ];
-
   let currentGalleryIndex = 0;
 
   function updateGalleryImage() {
@@ -43,14 +44,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  document.getElementById("prev").addEventListener("click", () => {
-    currentGalleryIndex =
-      (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
-    updateGalleryImage();
-  });
+  const prevBtn = document.getElementById("prev");
+  const nextBtn = document.getElementById("next");
 
-  document.getElementById("next").addEventListener("click", () => {
-    currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
-    updateGalleryImage();
-  });
+  if (prevBtn) {
+    prevBtn.addEventListener("click", () => {
+      currentGalleryIndex =
+        (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+      updateGalleryImage();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener("click", () => {
+      currentGalleryIndex =
+        (currentGalleryIndex + 1) % galleryImages.length;
+      updateGalleryImage();
+    });
+  }
 });
