@@ -1,162 +1,82 @@
 body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
+  color: #333;
   margin: 0;
   padding: 0;
-  font-family: 'Comic Sans MS', cursive;
+}
+
+header {
   text-align: center;
-  background: #ffe4ec;
-  color: #d63384;
-}
-
-#envelope_screen {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background: #ffccdd;
-}
-
-#envelope {
-  width: 200px;
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-#envelope:hover {
-  transform: scale(1.05);
-}
-
-.hidden {
-  display: none;
-}
-
-#main_content {
-  padding: 30px;
-}
-
-h1 {
+  padding: 40px 20px 10px;
   font-size: 28px;
-  margin-bottom: 10px;
+  font-weight: bold;
+  color: #ff4081;
 }
 
-#counter {
-  font-size: 18px;
-  margin-bottom: 30px;
-}
-
-.gallery-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 30px;
-}
-
-button {
-  padding: 10px 15px;
-  margin: 10px;
-  background-color: #ff69b4;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-.gallery-img {
-  width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 12px;
-  margin: 0 10px;
-  box-shadow: 0px 0px 10px #ccc;
-}
-
-#puzzle-container {
-  margin-top: 30px;
-  background: #fff;
+.container {
+  max-width: 800px;
+  margin: auto;
   padding: 20px;
-  border-radius: 12px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
 }
-.gallery-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+h1, h2, h3 {
+  color: #ff4081;
+}
+
+button, .btn {
+  background-color: #ff4081;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  padding: 12px 20px;
+  font-size: 16px;
+  margin: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover, .btn:hover {
+  background-color: #e91e63;
+}
+
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
   margin-top: 20px;
 }
 
-.gallery-img {
-  width: 300px;
-  height: auto;
-  border-radius: 10px;
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 30px;
-  background: none;
-  border: none;
-  color: #e91e63;
-  cursor: pointer;
-  padding: 10px;
-  z-index: 10;
-}
-
-.arrow.left {
-  left: 0;
-}
-
-.arrow.right {
-  right: 0;
-}
-
-.arrow:hover {
-  transform: translateY(-50%) scale(1.2);
-}
-#puzzle-board {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2px;
-  width: 320px;
-  margin: 20px auto;
-}
-
 .puzzle-piece {
-  width: 75px;
-  height: 75px;
-  object-fit: cover;
+  width: 100%;
   border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   cursor: grab;
-} 
-.counter-box {
-  margin: 20px auto;
-  text-align: center;
-  color: #ff3399;
-  font-family: 'Arial Rounded MT Bold', sans-serif;
 }
 
-.counter-box h3 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.counter-values {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.counter-values div {
+.counter {
   font-size: 20px;
-  background: #ffe6f0;
-  padding: 10px 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 5px rgba(255, 102, 153, 0.3);
+  margin: 20px 0;
+  color: #555;
 }
 
-.counter-values small {
-  display: block;
-  font-size: 12px;
+.footer {
+  text-align: center;
+  font-size: 14px;
+  margin-top: 40px;
   color: #999;
-  margin-top: 3px;
+}
+
+/* Przycisk graficzny */
+.pretty-button {
+  background: linear-gradient(to right, #ff99cc, #ff66cc);
+  color: white;
+  font-weight: bold;
+  padding: 14px 25px;
+  border-radius: 30px;
+  box-shadow: 0 5px 12px rgba(255, 20, 147, 0.4);
+  text-decoration: none;
 }
