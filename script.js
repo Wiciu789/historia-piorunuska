@@ -1,12 +1,12 @@
-// === KOPERTA ===
+// --- KOPERTA + START ---
 document.getElementById("envelope").addEventListener("click", () => {
-    document.getElementById("envelope_screen").style.display = "none";
+    document.getElementById("envelope-screen").style.display = "none";
     document.getElementById("main-content").classList.remove("hidden");
     startCounter();
     updateGalleryImage();
 });
 
-// === LICZNIK Z DNIAMI, GODZINAMI, MINUTAMI, SEKUNDAMI ===
+// --- LICZNIK: DNI, GODZINY, MINUTY, SEKUNDY ---
 function startCounter() {
     const startDate = new Date("2022-07-15T00:00:00");
 
@@ -24,20 +24,22 @@ function startCounter() {
     }, 1000);
 }
 
-// === GALERIA: JEDNO ZDJĘCIE + STRZAŁKI ===
+// --- GALERIA: JEDNO ZDJĘCIE + STRZAŁKI ---
 const galleryImages = [
     "gallery_1.jpg",
     "gallery_2.jpg",
     "gallery_3.jpg",
     "gallery_4.jpg",
-    "gallery_5.jpg",
-    "gallery_6.jpg"
+    "gallery_5.jpg"
 ];
+
 let currentGalleryIndex = 0;
 
 function updateGalleryImage() {
     const img = document.getElementById("gallery-single");
-    img.src = galleryImages[currentGalleryIndex];
+    if (img) {
+        img.src = galleryImages[currentGalleryIndex];
+    }
 }
 
 document.getElementById("scroll-left").addEventListener("click", () => {
@@ -50,8 +52,8 @@ document.getElementById("scroll-right").addEventListener("click", () => {
     updateGalleryImage();
 });
 
-// === PRZYCISK PUZZLI ===
+// --- PRZYCISK PUZZLI ---
 document.getElementById("shuffle-btn").addEventListener("click", () => {
     document.getElementById("puzzle-board").style.display = "grid";
-    // Możesz tu wywołać funkcję do uruchomienia puzzli
+    // Tutaj możesz dodać kod do uruchomienia puzzli
 });
