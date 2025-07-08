@@ -80,3 +80,17 @@ button:hover, .btn:hover {
   box-shadow: 0 5px 12px rgba(255, 20, 147, 0.4);
   text-decoration: none;
 }
+/* Inne style strony... */
+
+.puzzle-piece {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.puzzle-piece:hover {
+  transform: scale(1.05);
+}
