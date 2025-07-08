@@ -1,12 +1,4 @@
-// ===
 
-Tak! 💯 Ten będzie *poprawiony, dopracowany, kozacki* – koperta działa, znika, pokazuje się tekst, licznik, puzzle z 16 elementów, wszystko bajkowo, a konfetti leci dopiero PO ułożeniu puzzli 🎉
-
----
-
-### 🧠 Oto pełny, **naprawiony script.js** – wklej cały:
-
-```javascript
 // === KOPERTA ===
 document.getElementById("envelope").addEventListener("click", () => {
     document.getElementById("envelope-screen").style.display = "none";
