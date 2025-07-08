@@ -1,42 +1,41 @@
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-  <meta charset="UTF-8" />
-  <title>Historia Piorunka 💖</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <title>Historia Piorunka 💕</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="cover">
-    <img src="envelope.png" id="envelope" alt="Otwórz kopertę" />
-  </div>
-
-  <div id="main-content" class="hidden">
-    <h1>To będzie piękna historia Piorunka 💘</h1>
-    <p id="counter"></p>
-
-    <div class="gallery-container">
-      <div class="gallery" id="gallery">
-        <img src="gallery_1.jpg" />
-        <img src="gallery_2.jpg" />
-        <img src="gallery_3.jpg" />
-        <img src="gallery_4.jpg" />
-        <img src="gallery_5.jpg" />
-        <img src="gallery_6.jpg" />
-      </div>
+    <div id="envelope-screen">
+        <img src="envelope.png" id="envelope" alt="Otwórz kopertę" />
     </div>
 
-    <button id="shuffle-btn">🔄 Zagraj w puzzle</button>
-    <div id="puzzle-board"></div>
-    <p id="success-message" class="hidden">🎉 Brawo! Ułożyłeś puzzle!</p>
+    <div id="main-content" class="hidden">
+        <h1>To będzie piękna historia Piorunka 💌</h1>
+        <p id="counter">Jesteśmy razem od: <span id="days-together">1089</span> dni 💕</p>
 
-    <div id="timer">Jesteśmy razem od: <span id="days-together"></span> dni 💞</div>
-  </div>
+        <div class="gallery-container">
+            <button id="scroll-left">⬅️</button>
+            <div class="gallery" id="gallery">
+                <img src="gallery_1.jpg" />
+                <img src="gallery_2.jpg" />
+                <img src="gallery_3.jpg" />
+                <img src="gallery_4.jpg" />
+                <img src="gallery_5.jpg" />
+                <img src="gallery_6.jpg" />
+            </div>
+            <button id="scroll-right">➡️</button>
+        </div>
 
-  <audio autoplay loop>
-    <source src="music.mp3" type="audio/mpeg" />
-  </audio>
+        <button id="shuffle-btn">🎮 Zagraj w puzzle</button>
+        <div id="puzzle-board"></div>
+        <p id="success-message" class="hidden">🎉 Brawo! Ułożyłeś puzzle!</p>
 
-  <script src="script.js"></script>
+        <audio autoplay loop>
+            <source src="music.mp3" type="audio/mpeg" />
+        </audio>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
