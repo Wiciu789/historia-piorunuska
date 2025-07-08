@@ -2,7 +2,7 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Historia Piorunka 💕</title>
+  <title>Historia Piorunka 💘</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -12,7 +12,9 @@
 
   <div id="main_content" class="hidden">
     <h1>To będzie piękna historia Piorunka 💘</h1>
-    <p id="counter">Jesteśmy razem od:
+    
+    <p id="counter">
+      Jesteśmy razem od:
       <span id="days">0</span> dni,
       <span id="hours">0</span> godz,
       <span id="minutes">0</span> min,
@@ -20,13 +22,13 @@
     </p>
 
     <div class="gallery-wrapper">
-      <button id="prev">&#10094;</button>
-      <img id="gallery-image" src="gallery_1.jpg" class="gallery-img" />
-      <button id="next">&#10095;</button>
+      <button id="scroll-left">&#10094;</button>
+      <img id="gallery-single" src="gallery_1.jpg" class="gallery-img" />
+      <button id="scroll-right">&#10095;</button>
     </div>
 
-    <button id="shuffle-btn">🧩 Zagraj w puzzle</button>
-    <div id="puzzle-container" class="hidden"></div>
+    <button id="shuffle-btn">🎁 Zagraj w puzzle</button>
+    <div id="puzzle-board" class="hidden"></div>
   </div>
 
   <script src="script.js"></script>
