@@ -100,9 +100,15 @@ document.getElementById("shuffle-btn").addEventListener("click", () => {
         el.dataset.index == idx
       );
 
-      if (isCorrect) {
-        setTimeout(() => alert("Brawo! Ułożyłeś puzzle 🎉"), 300);
-      }
+   if (isCorrect) {
+  setTimeout(() => {
+    confetti({
+      particleCount: 150,
+      spread: 80,
+      origin: { y: 0.6 }
+    });
+  }, 300);
+}
     });
   });
 });
