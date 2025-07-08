@@ -113,3 +113,18 @@ button {
 .arrow:hover {
   transform: translateY(-50%) scale(1.2);
 }
+#puzzle-board {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  width: 320px;
+  margin: 20px auto;
+}
+
+.puzzle-piece {
+  width: 75px;
+  height: 75px;
+  object-fit: cover;
+  border-radius: 5px;
+  cursor: grab;
+}
