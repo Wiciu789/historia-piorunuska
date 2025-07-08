@@ -84,33 +84,91 @@ piece.src = `piece_${row}_${col}.jpg`;
 
   pieces.forEach(p => board.appendChild(p));
 
-  let dragged = null;
-  board.querySelectorAll("img").forEach(el => {
-    el.addEventListener("dragstart", e => dragged = e.target);
-    el.addEventListener("dragover", e => e.preventDefault());
-    el.addEventListener("drop", e => {
-      e.preventDefault();
-      if (!dragged || dragged === e.target) return;
+  let emptyTile = { row: 3, col: 3 };
+const board = document.getElementById("puzzle-board");
+board.classList.remove("hidden");
+board.innerHTML = "";
 
-      const tmp = document.createElement("span");
-      board.insertBefore(tmp, dragged);
-      board.insertBefore(dragged, e.target);
-      board.insertBefore(e.target, tmp);
-      board.removeChild(tmp);
+const tiles = [];
+for (let i = 0; i < 16; i++) {
+  const row = Math.floor(i / 4);
+  const col = i % 4;
 
-      const isCorrect = [...board.children].every((el, idx) =>
-        el.dataset.index == idx
-      );
+  const tile = document.createElement("img");
+  tile.className = "puzzle-piece";
+  tile.dataset.index = i;
+  tile.dataset.row = row;
+  tile.dataset.col = col;
 
-   if (isCorrect) {
-  setTimeout(() => {
-    confetti({
-      particleCount: 150,
-      spread: 80,
-      origin: { y: 0.6 }
-    });
-  }, 300);
-}
-    });
+  if (i < 15) {
+    tile.src = piece_${row}_${col}.jpg;
+  } else {
+    tile.classList.add("empty");
+    tile.src = ""; // lub np. pusty obrazek
+  }
+
+  tile.addEventListener("click", () => {
+    const r = parseInt(tile.dataset.row);
+    const c = parseInt(tile.dataset.col);
+
+    if (
+      (Math.abs(r - emptyTile.row) === 1 && c === emptyTile.col) ||
+      (Math.abs(c - emptyTile.col) === 1 && r === emptyTile.row)
+    ) {
+      // Zamiana pozycji
+      const emptyIndex = emptyTile.row * 4 + emptyTile.col;
+      const clickedIndex = r * 4 + c;
+
+      const emptyElement = board.querySelector(img[data-row='${emptyTile.row}'][data-col='${emptyTile.col}']);
+
+      // Zamiana src
+      emptyElement.src = tile.src;
+      tile.src = "";
+      tile.classList.add("empty");
+      emptyElement.classList.remove("empty");
+
+      // Aktualizacja pozycji
+      emptyTile.row = r;
+      emptyTile.col = c;
+
+      tile.dataset.row = emptyTile.row;
+      tile.dataset.col = emptyTile.col;
+      emptyElement.dataset.row = r;
+      emptyElement.dataset.col = c;
+
+      checkIfCorrect();
+    }
   });
-});
+
+  board.appendChild(tile);
+  tiles.push(tile);
+}
+
+function checkIfCorrect() {
+  const allTiles = board.querySelectorAll("img");
+  let correct = true;
+
+  allTiles.forEach((tile, i) => {
+    if (i < 15) {
+      const expectedRow = Math.floor(i / 4);
+      const expectedCol = i % 4;
+      const currentSrc = tile.src.split("/").pop();
+      const expectedName = piece_${expectedRow}_${expectedCol}.jpg;
+
+      if (!currentSrc.endsWith(expectedName)) {
+        correct = false;
+      }
+    }
+  });
+
+  if (correct) {
+    setTimeout(() => {
+      confetti({
+        particleCount: 150,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+      alert("Brawo! Ułożyłeś puzzle! 🧩");
+    }, 300);
+  }
+}
