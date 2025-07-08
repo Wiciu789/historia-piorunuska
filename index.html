@@ -1,41 +1,137 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8" />
-    <title>Historia Piorunka 💕</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <div id="envelope-screen">
-        <img src="envelope.png" id="envelope" alt="Otwórz kopertę" />
-    </div>
+body {
+    margin: 0;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    background: linear-gradient(135deg, #ffe0f0, #fef6ff);
+    color: #444;
+    overflow-x: hidden;
+}
 
-    <div id="main-content" class="hidden">
-        <h1>To będzie piękna historia Piorunka 💌</h1>
-        <p id="counter">Jesteśmy razem od: <span id="days-together">1089</span> dni 💕</p>
+#envelope-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    animation: pulse 2s infinite;
+}
 
-        <div class="gallery-container">
-            <button id="scroll-left">⬅️</button>
-            <div class="gallery" id="gallery">
-                <img src="gallery_1.jpg" />
-                <img src="gallery_2.jpg" />
-                <img src="gallery_3.jpg" />
-                <img src="gallery_4.jpg" />
-                <img src="gallery_5.jpg" />
-                <img src="gallery_6.jpg" />
-            </div>
-            <button id="scroll-right">➡️</button>
-        </div>
+#envelope {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+}
 
-        <button id="shuffle-btn">🎮 Zagraj w puzzle</button>
-        <div id="puzzle-board"></div>
-        <p id="success-message" class="hidden">🎉 Brawo! Ułożyłeś puzzle!</p>
+#envelope:hover {
+    transform: scale(1.1) rotate(-5deg);
+}
 
-        <audio autoplay loop>
-            <source src="music.mp3" type="audio/mpeg" />
-        </audio>
-    </div>
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+.hidden {
+    display: none;
+}
+
+#main-content {
+    padding: 30px;
+    text-align: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    font-size: 2.2em;
+    color: #d63384;
+}
+
+#counter {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #6f42c1;
+}
+
+.gallery-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    gap: 10px;
+}
+
+.gallery {
+    display: flex;
+    overflow-x: auto;
+    gap: 10px;
+    max-width: 90%;
+    padding: 10px;
+    scroll-behavior: smooth;
+}
+
+.gallery img {
+    width: 180px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.15);
+    transition: transform 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background-color: #ff90b3;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1em;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff67a0;
+}
+
+#puzzle-board {
+    margin: 40px auto;
+    width: 320px;
+    height: 320px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 2px;
+}
+
+.puzzle-piece {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    object-fit: cover;
+    border-radius: 4px;
+    transition: transform 0.2s;
+}
+
+.puzzle-piece:hover {
+    transform: scale(1.05);
+}
+
+#success-message {
+    font-size: 1.2em;
+    margin-top: 20px;
+    color: #198754;
+    animation: pop 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pop {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(1); }
+}
