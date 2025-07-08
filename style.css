@@ -94,3 +94,14 @@ button:hover, .btn:hover {
 .puzzle-piece:hover {
   transform: scale(1.05);
 }
+.puzzle-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 70px);
+  grid-template-rows: repeat(4, 70px);
+  justify-content: center;
+  gap: 6px;
+  margin-top: 20px;
+}
+.hidden {
+  display: none;
+}
