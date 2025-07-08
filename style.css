@@ -75,3 +75,41 @@ button {
   padding: 20px;
   border-radius: 12px;
 }
+.gallery-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.gallery-img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 30px;
+  background: none;
+  border: none;
+  color: #e91e63;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 10;
+}
+
+.arrow.left {
+  left: 0;
+}
+
+.arrow.right {
+  right: 0;
+}
+
+.arrow:hover {
+  transform: translateY(-50%) scale(1.2);
+}
