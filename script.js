@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // --- Puzzle ---
   const gridSize = 4;
   let tiles = [];
-
+const puzzleContainer = document.getElementById('puzzle');
   function createPuzzle() {
     puzzleContainer.innerHTML = '';
     tiles = [];
@@ -68,8 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const tile = document.createElement('div');
       tile.classList.add('tile');
       tile.dataset.index = i;
-      tile.style.backgroundImage = `url('${galleryImages[currentIndex]}')`;
-      tile.style.backgroundSize = `${gridSize * 100}% ${gridSize * 100}%`;
+  const row = Math.floor(i / gridSize);
+const col = i % gridSize;
+tile.style.backgroundImage = `url("piece_${row}_${col}.jpg")`;
+tile.style.backgroundSize = '400px 400px';
+tile.style.width = '100px';
+tile.style.height = '100px';
+tile.style.display = 'inline-block'; 
+   
       puzzleContainer.appendChild(tile);
       tiles.push(tile);
     }
