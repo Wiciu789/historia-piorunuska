@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // --- Galeria zdjęć ---
   const galleryImages = [
-    "zdjecie1.jpg", "zdjecie2.jpg", "zdjecie3.jpg",
-    "zdjecie4.jpg", "zdjecie5.jpg"
+    "gallery_1.jpg", "gallery-2.jpg", "gallery_3.jpg",
+    "gallery_4.jpg", "gallery_5.jpg"
   ];
   let currentIndex = 0;
 
