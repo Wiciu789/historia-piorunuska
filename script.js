@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const galleryImage = document.getElementById('galleryImage');
   const prevBtn = document.getElementById('prev');
   const nextBtn = document.getElementById('next');
-  const puzzleContainer = document.getElementById('puzzle');
+
   const playBtn = document.getElementById('playPuzzle');
   const shuffleBtn = document.getElementById('shufflePuzzle');
   const success = document.getElementById('success');
