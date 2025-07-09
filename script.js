@@ -68,9 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const tile = document.createElement('div');
       tile.classList.add('tile');
       tile.dataset.index = i;
-      tile.style.backgroundImage = url('${galleryImages[currentIndex]}');
-      tile.style.backgroundSize = ${gridSize * 100}% ${gridSize * 100}%;
-      tile.style.backgroundPosition = ${(i % gridSize) * -100}% ${Math.floor(i / gridSize) * -100}%;
+      tile.style.backgroundImage = `url('${galleryImages[currentIndex]}')`;
+      tile.style.backgroundSize = `${gridSize * 100}% ${gridSize * 100}%`;
       puzzleContainer.appendChild(tile);
       tiles.push(tile);
     }
