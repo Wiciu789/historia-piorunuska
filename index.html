@@ -1,44 +1,40 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
- <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <meta charset="UTF-8" />
   <title>Historia Piorunka 💘</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="envelope_screen">
-    <img src="envelope.png" id="envelope" alt="Otwórz kopertę" />
+  <div id="envelope-container">
+    <img src="koperta.png" alt="Koperta" id="envelope" />
   </div>
 
-  <div id="main_content" class="hidden">
-    <h1>To będzie piękna historia Piorunka 💘</h1>
-    
-   <div id="counter" class="counter-box">
-  <h3>⏳ Jesteśmy razem od:</h3>
-  <div class="counter-values">
-    <div><span id="days">0</span><small>dni</small></div>
-    <div><span id="hours">0</span><small>godz</small></div>
-    <div><span id="minutes">0</span><small>min</small></div>
-    <div><span id="seconds">0</span><small>sek</small></div>
-  </div>
-</div>
+  <div id="main-content" style="display: none;">
+    <h1>To będzie piękna strona Piorunka 💕</h1>
 
-   <div class="gallery-wrapper">
-  <button id="prev" class="arrow left">❮</button>
-  <img id="gallery-image" src="gallery_1.jpg" class="gallery-img" />
-  <button id="next" class="arrow right">❯</button>
-</div>
+    <div id="timer"></div>
 
-    <button id="shuffle-btn">🎁 Zagraj w puzzle</button>
-    <div id="puzzle-board" class="hidden"></div>
+    <div class="gallery">
+      <img id="galleryImage" src="zdjecie1.jpg" />
+      <div class="controls">
+        <button id="prev">←</button>
+        <button id="next">→</button>
+      </div>
+    </div>
+
+    <div class="puzzle-wrapper">
+      <button id="playPuzzle">Zagraj w puzzle 🧩</button>
+      <button id="shufflePuzzle">Losuj Oliwka</button>
+      <div id="puzzle"></div>
+      <div id="success" style="display: none;">Brawo! Ułożyłeś puzzle! 🎉</div>
+    </div>
   </div>
+
+  <audio autoplay loop>
+    <source src="muzyka.mp3" type="audio/mpeg" />
+  </audio>
 
   <script src="script.js"></script>
-<section id="puzzle-section">
-  <h2>🎁 Zagraj w puzzle</h2>
-  <button id="shuffle-btn">Zagraj w puzzle</button>
-  <div id="puzzle-board" class="puzzle-grid hidden"></div>
-</section>
 </body>
 </html>
