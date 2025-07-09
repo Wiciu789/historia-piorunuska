@@ -1,107 +1,139 @@
 body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(to bottom, #ffe6f0, #fff0f5);
-  color: #333;
   margin: 0;
-  padding: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background: #ffd2e2;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  padding: 40px 20px 10px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #ff4081;
+#envelope-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-.container {
-  max-width: 800px;
-  margin: auto;
-  padding: 20px;
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 8px 25px rgba(255, 105, 180, 0.2);
-}
-
-h1, h2, h3 {
-  color: #ff4081;
-}
-
-button, .btn {
-  background-color: #ff4081;
-  border: none;
-  border-radius: 25px;
-  color: white;
-  padding: 12px 20px;
-  font-size: 16px;
-  margin: 10px;
+#envelope {
+  width: 180px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform 0.5s ease;
 }
 
-button:hover, .btn:hover {
-  background-color: #e91e63;
+#envelope:hover {
+  transform: scale(1.05);
 }
 
-.puzzle-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 5px;
+#main-content {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 28px;
+  color: #ff4da6;
+  margin-bottom: 20px;
+}
+
+#timer {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.gallery {
+  position: relative;
+  margin: 20px 0;
+}
+
+#galleryImage {
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+  border: 4px solid #ff9dcf;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ffaad4;
+}
+
+.controls {
+  margin-top: 10px;
+}
+
+.controls button {
+  background-color: #ff4da6;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  margin: 0 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.controls button:hover {
+  background-color: #ff2c8c;
+}
+
+.puzzle-wrapper {
   margin-top: 20px;
 }
 
-.puzzle-piece {
-  width: 100%;
-  border-radius: 5px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+#puzzle {
+  width: 320px;
+  height: 320px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+  margin: 10px auto;
+}
+
+.tile {
+  width: 75px;
+  height: 75px;
+  background-color: #fff;
+  border: 2px dashed #ff8ebd;
+  border-radius: 6px;
+  background-repeat: no-repeat;
+  background-size: cover;
   cursor: grab;
 }
 
-.counter {
-  font-size: 20px;
-  margin: 20px 0;
-  color: #555;
+.tile:active {
+  cursor: grabbing;
 }
 
-.footer {
-  text-align: center;
-  font-size: 14px;
-  margin-top: 40px;
-  color: #999;
-}
-
-/* Przycisk graficzny */
-.pretty-button {
-  background: linear-gradient(to right, #ff99cc, #ff66cc);
+button {
+  background-color: #ff4da6;
   color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 25px;
+  font-size: 16px;
+  margin: 8px;
   font-weight: bold;
-  padding: 14px 25px;
-  border-radius: 30px;
-  box-shadow: 0 5px 12px rgba(255, 20, 147, 0.4);
-  text-decoration: none;
-}
-/* Inne style strony... */
-
-.puzzle-piece {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: transform 0.2s;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
 
-.puzzle-piece:hover {
-  transform: scale(1.05);
+button:hover {
+  background-color: #ff2c8c;
 }
-.puzzle-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 70px);
-  grid-template-rows: repeat(4, 70px);
-  justify-content: center;
-  gap: 6px;
-  margin-top: 20px;
+
+#success {
+  margin-top: 15px;
+  font-size: 20px;
+  color: #28a745;
+  font-weight: bold;
+  animation: tada 1s ease;
 }
-.hidden {
-  display: none;
+
+@keyframes tada {
+  0% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(0.95); }
+  75% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
