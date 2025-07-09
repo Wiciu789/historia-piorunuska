@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const seconds = Math.floor((diff / 1000) % 60);
 
       document.getElementById('timer').innerText = 
-        ${days} dni ${hours}h ${minutes}m ${seconds}s;
+        `${days} dni ${hours}h ${minutes}m ${seconds}s`;
     }, 1000);
   }
 
